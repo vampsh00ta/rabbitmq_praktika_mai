@@ -1,0 +1,77 @@
+version: "3.4"
+
+services:
+
+#  celery:
+#    image: .
+
+
+#  db:
+#    image: postgres:14.6
+#    restart: always
+#    hostname: db
+#    environment:
+#      POSTGRES_DB: "market_api"
+#      POSTGRES_USER: "market_api"
+#      POSTGRES_PASSWORD: "market_api"
+#    volumes:
+#      - postgres_data:/var/lib/postgres
+
+#  zookeeper:
+#    image: confluentinc/cp-zookeeper:7.3.2
+#    container_name: zookeeper
+#    environment:
+#      ZOOKEEPER_CLIENT_PORT: 2181
+#      ZOOKEEPER_TICK_TIME: 2000
+#    volumes:
+#      - zoo_data:/var/lib/zookeeper/data
+#      - zoo_log:/var/lib/zookeeper/log
+
+#  rabbitmq:
+#    image: rabbitmq
+#    container_name: rabbitmq_gui
+#    ports:
+#      - 5672:5672
+#      - 15672:15672
+#    networks:
+#      - rabbitmq_net
+  rabbitmq_gui:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmq_gui
+    ports:
+      - 5672:5672
+      - 15672:15672
+    networks:
+      - rabbitmq_net
+networks:
+  rabbitmq_net:
+#  redis:
+#    image: redis:6.2-alpine
+#    restart: always
+#    ports:
+#      - '6379:6379'
+#    volumes:
+#      - redis_cache:/data
+#  fastapi_main:
+#    build:
+#      context: .
+#    env_file:
+#      - .env.prod
+#    ports:
+#      - 8000:8000
+#    restart: always
+#    depends_on:
+#      - broker
+#      - db
+#      - redis
+#
+#volumes:
+#  postgres_data:
+#  broker_data:
+#  zoo_data:
+#  zoo_log:
+#  redis_cache:
+#    driver: local
+#
+
+
