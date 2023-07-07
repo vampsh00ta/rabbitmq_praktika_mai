@@ -11,7 +11,6 @@ from src.authv2.models import Base as auth_base
 from src.items.models import Base as item_base
 from src.cart.models import Base as cart_base
 from migrations.relationships import Base as relations_base
-from src.delivery.models import Base as delivery_base
 
 
 
@@ -37,7 +36,6 @@ if config.config_file_name is not None:
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
 target_metadata = [relations_base.metadata,
-delivery_base.metadata
                    # item_base.metadata,
                    # cart_base.metadata,
                    # relations_base.metadata]
