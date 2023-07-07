@@ -3,7 +3,6 @@ import json
 
 
 from aio_pika import Channel
-from sqlalchemy.ext.asyncio import AsyncSession
 
 from config import DEFAULT_QUEUE_PARAMETERS, RABBITMQ_QUEUE_NAME, RABBITMQ_EXCHANGE_NAME
 
@@ -12,7 +11,7 @@ from src.rabbitmq_consumer.utils import singleton
 from aio_pika.queue import Queue
 from aio_pika.message import IncomingMessage
 from src.rabbitmq_consumer.router import DeliveryRouter
-from utils.database import get_async_session, async_session_maker
+from utils.database import async_session_maker
 
 loop = asyncio.get_event_loop()
 
@@ -32,7 +31,7 @@ class Consumer(DeliveryRouter):
         self.iterator_timeout_sleep = iterator_timeout_sleep
         self.consuming_flag = True
 
-    async def start(self):
+    async def start_consuming(self):
         async with self.queue.iterator(timeout=self.iterator_timeout) as queue_iterator:
             while self.consuming_flag:
                 try:

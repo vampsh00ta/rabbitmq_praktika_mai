@@ -1,0 +1,25 @@
+version: "3.4"
+
+services:
+  db_delivery:
+    image: postgres:14.6
+    restart: always
+    hostname: db_delivery
+    environment:
+      POSTGRES_DB: "microservice_delivery"
+      POSTGRES_USER: "microservice_delivery"
+      POSTGRES_PASSWORD: "microservice_delivery"
+    volumes:
+      - postgres_data_delivery:/var/lib/postgres
+  fastapi_delivery:
+    build:
+      context: .
+    env_file:
+      - .env
+    ports:
+      - 8001:8001
+    restart: always
+    depends_on:
+      - db_delivery
+volumes:
+  postgres_data_delivery:
