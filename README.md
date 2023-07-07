@@ -1,6 +1,6 @@
 1.Иницилизация консьюмер:подключение, получение очереди, запуск прослушивания очереди
 
-https://github.com/vampsh00ta/rabbitmq_praktika_mai/blob/main/main.py
+https://github.com/vampsh00ta/rabbitmq_praktika_mai/blob/delivery/main.py
 
 2.Логика косьюмера
 
