@@ -11,7 +11,7 @@ import logging
 
 from src.delivery.models import Delivery, Status, StatusName
 
-logger = logging.getLogger(__name__)
+# logger = logging.getLogger(__name__)
 
 class DeliveryRouter(object):
     async def create_delivery(self,delivery_data: dict, get_session):
